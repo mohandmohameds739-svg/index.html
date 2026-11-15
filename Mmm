@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEB STUDIO | تصميم وتطوير المواقع</title>
+
+<style>
+:root {
+    --bg: #07111f;
+    --surface: #101e30;
+    --surface2: #0b1929;
+    --blue: #168be0;
+    --blue-light: #36a8ff;
+    --text: #ffffff;
+    --muted: #aab9ca;
+    --border: #20344e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+/* Navigation */
+
+header {
+    background: rgba(7, 17, 31, .96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: var(--blue-light);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--blue-light);
+}
+
+.menu-button {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+/* General */
+
+section {
+    padding: 85px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.primary-button {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.primary-button:hover {
+    background: #0874c4;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    display: inline-block;
+    border: 1px solid var(--blue-light);
+    color: var(--blue-light);
+    padding: 12px 23px;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.secondary-button:hover {
+    background: var(--blue);
+    color: white;
+}
+
+/* Hero */
+
+.hero {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 80% 30%, rgba(22,139,224,.17), transparent 35%),
+        radial-gradient(circle at 10% 80%, rgba(22,139,224,.10), transparent 35%);
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: var(--blue-light);
+    border: 1px solid var(--border);
+    padding: 7px 15px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    background: var(--surface);
+}
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 60px);
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--blue-light);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+/* About */
+
+.about {
+    background: var(--surface2);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.about-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.about-box h3 {
+    color: var(--blue-light);
+    margin-bottom: 12px;
+}
+
+/* Services */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 25px;
+    transition: .25s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+}
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(22,139,224,.15);
+    color: var(--blue-light);
+    font-size: 25px;
+    margin-bottom: 17px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--muted);
+}
+
+/* Portfolio */
+
+.portfolio {
+    background: var(--surface2);
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 9px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.filter-button.active,
+.filter-button:hover {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    height: 175px;
+    display: grid;
+    place-items: center;
+    background:
+        linear-gradient(135deg, #0b3153, #10243a);
+    color: var(--blue-light);
+    font-size: 48px;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info p {
+    color: var(--muted);
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+/* Contact / Request */
+
+.contact-content {
+    max-width: 820px;
+    margin: auto;
+}
+
+.form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 28px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #dce8f5;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #304963;
+    background: #091626;
+    color: white;
+    outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--blue-light);
+}
+
+.field textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.field input[type="file"] {
+    padding: 10px;
+}
+
+.radio-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    background: #091626;
+    border: 1px solid #304963;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.radio-box label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.radio-box input {
+    width: auto;
+    accent-color: var(--blue);
+}
+
+.submit-button {
+    width: 100%;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit-button:hover {
+    background: #0874c4;
+}
+
+.form-note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 13px;
+}
+
+#status {
+    margin-top: 14px;
+    color: var(--blue-light);
+    text-align: center;
+}
+
+/* Footer */
+
+footer {
+    background: #050d17;
+    border-top: 1px solid var(--border);
+    padding: 35px 0;
+    text-align: center;
+}
+
+footer .logo {
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+    .services-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .menu-button {
+        display: block;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        left: 0;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .services-grid,
+    .projects-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .form-card {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">WEB STUDIO</a>
+
+        <button class="menu-button" id="menuButton" type="button">
+            القائمة ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#portfolio">أعمالنا</a></li>
+            <li><a href="#contact">اطلب مشروعك</a></li>
+        </ul>
+
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                حلول رقمية وتصميم مواقع
+            </span>
+
+            <h1>
+                نبني حضورك الرقمي
+                <span>بشكل احترافي</span>
+            </h1>
+
+            <p>
+                نصمم ونطور مواقع إلكترونية عصرية تساعدك على
+                عرض أعمالك وخدماتك والوصول إلى عملائك بطريقة
+                سهلة واحترافية.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="primary-button">
+                    ابدأ مشروعك الآن
+                </a>
+
+                <a href="#portfolio" class="secondary-button">
+                    شاهد أعمالنا
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>من نحن</h2>
+            <p>تعرف على فريق WEB STUDIO</p>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-text">
+                <h3>نحول أفكارك إلى مواقع إلكترونية</h3>
+
+                <p>
+                    نحن فريق مهتم بتصميم وتطوير المواقع الإلكترونية،
+                    ونعمل على تقديم حلول رقمية تناسب احتياجات
+                    الأفراد والشركات والمشروعات التجارية.
+                </p>
+
+                <p>
+                    نهتم بتجربة المستخدم، وسهولة الاستخدام،
+                    والتصميم المتجاوب مع الهواتف وأجهزة الكمبيوتر.
+                </p>
+            </div>
+
+            <div class="about-box">
+                <h3>هدفنا</h3>
+                <p>
+                    تقديم مواقع عملية بتصميم مميز وتجربة استخدام
+                    واضحة، مع الاهتمام بتفاصيل كل مشروع واحتياجاته.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>خدماتنا</h2>
+            <p>حلول متنوعة لتلبية احتياجات مشروعك</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">⌘</div>
+                <h3>تصميم المواقع</h3>
+                <p>
+                    تصميم واجهات عصرية ومتجاوبة مع مختلف
+                    أحجام الشاشات.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛒</div>
+                <h3>المتاجر الإلكترونية</h3>
+                <p>
+                    إنشاء متاجر إلكترونية لعرض المنتجات
+                    وتنظيم تجربة التسوق.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⌨</div>
+                <h3>تطوير المواقع</h3>
+                <p>
+                    تطوير وظائف الموقع وتحسين أدائه
+                    وتجربة استخدامه.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▣</div>
+                <h3>مواقع الشركات</h3>
+                <p>
+                    مواقع تعريفية لعرض خدمات الشركات
+                    ومعلومات التواصل.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">◉</div>
+                <h3>المواقع الشخصية</h3>
+                <p>
+                    صفحات شخصية ومعارض أعمال لعرض
+                    المهارات والمشروعات.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙</div>
+                <h3>تطوير حسب الطلب</h3>
+                <p>
+                    تنفيذ أفكار ومميزات خاصة وفقًا
+                    لمتطلبات كل مشروع.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio" id="portfolio">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>معرض الأعمال</h2>
+            <p>نماذج لعرض أنواع المواقع التي يمكن تنفيذها</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-button active" data-filter="all">
+                الكل
+            </button>
+
+            <button class="filter-button" data-filter="commercial">
+                تجاري
+            </button>
+
+            <button class="filter-button" data-filter="personal">
+                شخصي
+            </button>
+
+            <button class="filter-button" data-filter="other">
+                أخرى
+            </button>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card" data-category="commercial">
+                <div class="project-image">🛍</div>
+                <div class="project-info">
+                    <h3>متجر إلكتروني</h3>
+                    <p>تصميم متجر لعرض المنتجات وتنظيمها.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="commercial">
+                <div class="project-image">🏢</div>
+                <div class="project-info">
+                    <h3>موقع شركة</h3>
+                    <p>واجهة تعريفية لعرض خدمات الشركة.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="personal">
+                <div class="project-image">👤</div>
+                <div class="project-info">
+                    <h3>موقع شخصي</h3>
+                    <p>صفحة شخصية لعرض المهارات والأعمال.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="personal">
+                <div class="project-image">💼</div>
+                <div class="project-info">
+                    <h3>معرض أعمال</h3>
+                    <p>عرض المشروعات والخبرات بطريقة منظمة.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="other">
+                <div class="project-image">📚</div>
+                <div class="project-info">
+                    <h3>موقع تعليمي</h3>
+                    <p>عرض المحتوى والدورات التعليمية.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="other">
+                <div class="project-image">📰</div>
+                <div class="project-info">
+                    <h3>مدونة إلكترونية</h3>
+                    <p>تنظيم المقالات والمحتوى المنشور.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Project Request -->
+<section id="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>اطلب مشروعك</h2>
+            <p>
+                املأ البيانات التالية وسنتلقى تفاصيل طلبك عبر واتساب
+            </p>
+        </div>
+
+        <div class="contact-content">
+            <div class="form-card">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="clientName">الاسم *</label>
+                        <input type="text" id="clientName"
+                               placeholder="اكتب اسمك">
+                    </div>
+
+                    <div class="field">
+                        <label for="clientPhone">رقم الهاتف *</label>
+                        <input type="tel" id="clientPhone"
+                               placeholder="رقم التواصل">
+                    </div>
+
+                    <div class="field full">
+                        <label for="businessName">
+                            اسم النشاط التجاري أو المشروع
+                        </label>
+                        <input type="text" id="businessName"
+                               placeholder="اسم المشروع">
+                    </div>
+
+                    <div class="field full">
+                        <label for="websiteType">نوع الموقع المطلوب *</label>
+                        <select id="websiteType">
+                            <option value="">اختر نوع الموقع</option>
+                            <option>موقع تجاري</option>
+                            <option>متجر إلكتروني</option>
+                            <option>موقع شخصي</option>
+                            <option>موقع شركة</option>
+                            <option>مدونة</option>
+                            <option>موقع تعريفي</option>
+                            <option>نوع آخر</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="projectIdea">اشرح فكرة المشروع *</label>
+                        <textarea id="projectIdea"
+                            placeholder="اكتب تفاصيل فكرة مشروعك"></textarea>
+                    </div>
+
+                    <div class="field full">
+                        <label for="features">المميزات المطلوبة</label>
+                        <textarea id="features"
+                            placeholder="مثلاً: تسجيل دخول، لوحة تحكم، متجر، دفع إلكتروني..."></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="design">التصميم المفضل</label>
+                        <select id="design">
+                            <option value="">اختر التصميم</option>
+                            <option>عصري</option>
+                            <option>بسيط</option>
+                            <option>احترافي</option>
+                            <option>فاخر</option>
+                            <option>أترك الاختيار للفريق</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="budget">الميزانية المتوقعة</label>
+                        <select id="budget">
+                            <option value="">اختر الميزانية</option>
+                            <option>أقل من 2000 جنيه</option>
+                            <option>2000 - 5000 جنيه</option>
+                            <option>5000 - 10000 جنيه</option>
+                            <option>أكثر من 10000 جنيه</option>
+                            <option>لم أحدد بعد</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="reference">رابط موقع مشابه أو مرجعي</label>
+                        <input type="url" id="reference"
+                               placeholder="https://example.com">
+                    </div>
+
+                    <div class="field">
+                        <label for="deadline">موعد التسليم المطلوب</label>
+                        <select id="deadline">
+                            <option value="">اختر الموعد</option>
+                            <option>في أسرع وقت</option>
+                            <option>خلال أسبوع</option>
+                            <option>خلال أسبوعين</option>
+                            <option>خلال شهر</option>
+                            <option>لا يوجد موعد محدد</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="referenceImage">
+                            صورة مرجعية للتصميم
+                        </label>
+                        <input type="file" id="referenceImage"
+                               accept="image/*">
+                    </div>
+
+                    <div class="field full">
+                        <label for="notes">ملاحظات إضافية</label>
+                        <textarea id="notes"
+                            placeholder="أي تفاصيل أخرى تريد إضافتها"></textarea>
+                    </div>
+
+                    <div class="field full">
+                        <label>اختر رقم واتساب لاستقبال طلبك *</label>
+
+                        <div class="radio-box">
+
+                            <label>
+                                <input type="radio"
+                                       name="whatsappNumber"
+                                       value="01069688309"
+                                       checked>
+                                01069688309
+                            </label>
+
+                            <label>
+                                <input type="radio"
+                                       name="whatsappNumber"
+                                       value="01116605903">
+                                01116605903
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="field full">
+                        <button
+                            type="button"
+                            class="submit-button"
+                            id="sendProjectButton"
+                            onclick="sendProject()">
+                            إرسال طلب المشروع عبر واتساب
+                        </button>
+
+                        <p id="status" role="status"></p>
+
+                        <p class="form-note">
+                            ستفتح محادثة واتساب برسالة تحتوي على بيانات طلبك.
+                            راجع الرسالة واضغط إرسال داخل واتساب.
+                            الصورة المرجعية يجب إرفاقها يدويًا داخل المحادثة.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="logo">WEB STUDIO</div>
+
+        <p>
+            تصميم وتطوير المواقع الإلكترونية
+        </p>
+
+        <p style="margin-top:12px">
+            جميع الحقوق محفوظة © WEB STUDIO
+        </p>
+    </div>
+</footer>
+
+<script>
+
+/* Mobile navigation */
+
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+
+menuButton.addEventListener("click", function() {
+    navLinks.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        navLinks.classList.remove("open");
+    });
+});
+
+
+/* Portfolio filtering */
+
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        filterButtons.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(function(card) {
+
+            if (
+                filter === "all" ||
+                card.dataset.category === filter
+            ) {
+                card.classList.remove("hidden");
+            } else {
+                card.classList.add("hidden");
+            }
+
+        });
+
+    });
+
+});
+
+
+/* WhatsApp project request */
+
+function sendProject() {
+
+    const status = document.getElementById("status");
+
+    const clientName =
+        document.getElementById("clientName").value.trim();
+
+    const clientPhone =
+        document.getElementById("clientPhone").value.trim();
+
+    const websiteType =
+        document.getElementById("websiteType").value;
+
+    const projectIdea =
+        document.getElementById("projectIdea").value.trim();
+
+    // التحقق من البيانات الأساسية
+
+    if (!clientName) {
+        status.textContent = "من فضلك اكتب اسمك.";
+        document.getElementById("clientName").focus();
+        return;
+    }
+
+    if (!clientPhone) {
+        status.textContent = "من فضلك اكتب رقم هاتفك.";
+        document.getElementById("clientPhone").focus();
+        return;
+    }
+
+    if (!websiteType) {
+        status.textContent = "من فضلك اختر نوع الموقع.";
+        document.getElementById("websiteType").focus();
+        return;
+    }
+
+    if (!projectIdea) {
+        status.textContent = "من فضلك اشرح فكرة المشروع.";
+        document.getElementById("projectIdea").focus();
+        return;
+    }
+
+    // قراءة رقم واتساب المختار
+
+    const selectedNumber = document.querySelector(
+        'input[name="whatsappNumber"]:checked'
+    );
+
+    if (!selectedNumber) {
+        status.textContent = "من فضلك اختر رقم واتساب.";
+        return;
+    }
+
+    const localNumber = selectedNumber.value;
+
+    // تحويل الرقم المحلي إلى الصيغة الدولية داخل الرابط فقط
+
+    const internationalNumber =
+        "20" + localNumber.substring(1);
+
+    // قراءة بقية البيانات
+
+    const businessName =
+        document.getElementById("businessName").value.trim();
+
+    const features =
+        document.getElementById("features").value.trim();
+
+    const design =
+        document.getElementById("design").value;
+
+    const reference =
+        document.getElementById("reference").value.trim();
+
+    const budget =
+        document.getElementById("budget").value;
+
+    const deadline =
+        document.getElementById("deadline").value;
+
+    const notes =
+        document.getElementById("notes").value.trim();
+
+    // تجهيز الرسالة
+
+    const message =
+`طلب مشروع جديد - WEB STUDIO
+
+الاسم: ${clientName}
+رقم الهاتف: ${clientPhone}
+اسم النشاط: ${businessName || "لم يحدد"}
+
+نوع الموقع: ${websiteType}
+
+فكرة المشروع:
+${projectIdea}
+
+المميزات المطلوبة:
+${features || "لم تحدد"}
+
+التصميم المفضل:
+${design || "لم يحدد"}
+
+الموقع المرجعي:
+${reference || "لا يوجد"}
+
+الميزانية:
+${budget || "لم تحدد"}
+
+موعد التسليم:
+${deadline || "لم يحدد"}
+
+ملاحظات إضافية:
+${notes || "لا توجد"}
+
+تم إرسال الطلب من نموذج الموقع.`;
+
+    // إنشاء رابط واتساب
+
+    const whatsappURL =
+        "https://wa.me/" +
+        internationalNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    status.textContent = "جاري فتح واتساب...";
+
+    // الانتقال إلى واتساب
+
+    window.location.href = whatsappURL;
+
+}
+
+</script>
+
+</body>
+</html>
